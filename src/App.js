@@ -1,23 +1,37 @@
-import logo from './logo.svg';
 import './App.css';
-
+import { BrowserRouter,Route,Routes } from 'react-router-dom';
+import Form from './page/form/page';
+import Dashboard from './page/dashboard/Dashboard';
+import Test from './component/Test';
+import TestOne from './component/TestOne';
+import Protect from './component/Protect';
+import Admin from './page/admin/page';
+import Home from './page/home/Home';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Home/>} />
+    <Route path="/admin"
+    element={
+      <Protect role={["admin","test"]}>
+      <Admin/>
+    </Protect>
+    }
+    />
+    
+
+        {/* NestedRoute */}
+        <Route path="/dashboard" element={<Dashboard/>}>
+        <Route path="test" element={<Test/>} />
+        <Route  path="testone" element={<TestOne/>} />
+        </Route>
+
+
+        <Route path="/form" element={<Form/>}/> 
+      </Routes>
+      </BrowserRouter>
     </div>
   );
 }
