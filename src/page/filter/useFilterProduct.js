@@ -8,14 +8,12 @@ console.log("Data",data);
 
 const filterData=useMemo(()=>{
     let filterResultData=data;
-
     if(searchTerm){
         let searchTermLower=searchTerm.toLowerCase();
         filterResultData=filterResultData.filter((item)=>{
             return item.title.toLowerCase().includes(searchTermLower);
         })
     }
-
     if(minPrice){
         filterResultData=filterResultData.filter((item)=>item.price >=parseFloat(minPrice)); 
     }

@@ -20,7 +20,6 @@ export const useProductFilterWorker=(data,filter)=>{
         }
         workerRef.current.onerror=(err)=>{
             console.log(err);
-
         }
 
         return()=>{

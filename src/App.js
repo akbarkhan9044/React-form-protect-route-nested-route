@@ -11,6 +11,7 @@ import Product from './page/product/Product';
 import Products from './page/filter/Product';
 import ProductData from './page/productdata/Product';
 import Web from './page/webhook/Web';
+import Formdata from './page/formdata/Formdata';
 function App() {
   return (
     <div className="App">
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path="/fill" element={<Products/>} />
+        <Route path="/form" element={<Formdata/>} />
         <Route path="/web" element={<Web/>} />
         <Route path="/prod" element={<ProductData/>} />
         <Route  path="/product" element={<Product/>} />
